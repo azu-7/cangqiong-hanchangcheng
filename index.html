@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <title>长城低精度墙体原型（Cesium）</title>
+  <style>
+    html, body, #cesiumContainer { width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden; }
+    #panel { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.9); padding: 8px; border-radius: 4px; z-index: 2; }
+    label { display:block; margin:4px 0; font-size:13px }
+    input[type="number"]{ width:80px }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <div id="panel">
+    <label>墙高 (m) <input id="wallHeight" type="number" value="6" /></label>
+    <label>墙厚 (m) <input id="wallThickness" type="number" value="6" /></label>
+    <label>颜色 <input id="wallColor" type="color" value="#8B4513" /></label>
+    <label><input id="toggleBtn" type="checkbox" checked/> 显示墙体</label>
+    <button id="reloadBtn">重新加载数据</button>
+    <div style="margin-top:6px; font-size:12px; color:#333">注意：若需要真实地形高度，请在代码中设置 Cesium Ion token 或自有 terrainProvider。</div>
+  </div>
+
+  <script src="Cesium/Cesium.js"></script>
+  <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+  <script src="src/wall.js"></script>
+</body>
+</html>
